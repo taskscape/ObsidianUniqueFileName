@@ -23,6 +23,9 @@ You will need obsidian package:
 ```bash
 npm install --save obsidian
 ```
+```bash
+npm install @types/node --save obsidian
+```
 
 ## Step 3: Build the plugin
 Transpile TypeScript to JavaScript: Install TypeScript globally if not already installed: 
