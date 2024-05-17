@@ -1,16 +1,16 @@
 {
   "compilerOptions": {
-    "target": "es6",               // Set the JavaScript version that output should conform to
-    "module": "commonjs",          // CommonJS is typical for Node.js applications
-    "lib": ["dom", "es6"],         // Include DOM and ES6 typings
-    "outDir": "./dist",            // Output directory for compiled files
-    "rootDir": "./src",            // Root directory of source files
-    "strict": true,                // Enable all strict type-checking options
-    "esModuleInterop": true,       // Enables compatibility with Babel imports
+    "target": "es2017",             // Updated to a more recent version
+    "module": "commonjs",           // CommonJS is typical for Node.js applications
+    "lib": ["dom", "es2017"],       // Updated to include ES2017 library definitions
+    "outDir": "./dist",             // Output directory for compiled files
+    "rootDir": "./src",             // Root directory of source files
+    "strict": true,                 // Enable all strict type-checking options
+    "esModuleInterop": true,        // Enables compatibility with Babel imports
     "forceConsistentCasingInFileNames": true
   },
   "include": [
-    "src/**/*"  // Adjust this path to where your source files are located
+    "src/**/*"                      // Adjust this path to where your source files are located
   ],
   "exclude": [
     "node_modules"

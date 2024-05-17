@@ -7,7 +7,9 @@ export default class GUIDRenamer extends Plugin {
             name: 'Rename to GUID',
             callback: () => {
                 const currentFile = this.app.workspace.getActiveFile();
-                this.renameFileToGUID(currentFile);
+                if (currentFile) {
+                    this.renameFileToGUID(currentFile);
+                }
             },
             hotkeys: [
                 {
@@ -32,14 +34,14 @@ export default class GUIDRenamer extends Plugin {
             })
         );
 
-        this.registerCodeMirror((cm) => {
-            cm.on("contextmenu", (instance, event) => {
-                const {target} = event;
-                if (target instanceof Element && target.classList.contains('cm-hmd-internal-link')) {
-                    const path = target.getAttribute('href');
+        this.registerDomEvent(document, 'contextmenu', (event: MouseEvent) => {
+            const target = event.target as HTMLElement;
+            if (target && target.classList.contains('internal-link')) {
+                const path = target.getAttribute('href');
+                if (path) {
                     const file = this.app.vault.getAbstractFileByPath(path);
                     if (file instanceof TFile) {
-                        const menu = new Menu(this.app);
+                        const menu = new Menu();
                         menu.addItem((item) => {
                             item.setTitle("Rename to GUID")
                                 .setIcon('pencil')
@@ -47,11 +49,11 @@ export default class GUIDRenamer extends Plugin {
                                     this.renameFileToGUID(file);
                                 });
                         });
-                        menu.showAtPosition({x: event.pageX, y: event.pageY});
+                        menu.showAtPosition({ x: event.pageX, y: event.pageY });
                         event.preventDefault();
                     }
                 }
-            });
+            }
         });
     }
 
@@ -61,9 +63,11 @@ export default class GUIDRenamer extends Plugin {
             return;
         }
 
-        const newFileName = this.generateGUID() + file.extension;
+        const newFileName = `${this.generateGUID()}.${file.extension}`;
+        const newPath = file.parent ? `${file.parent.path}/${newFileName}` : newFileName;
+
         try {
-            await this.app.fileManager.renameFile(file, newFileName);
+            await this.app.fileManager.renameFile(file, newPath);
             new Notice(`File renamed to ${newFileName}`);
         } catch (error) {
             new Notice("Failed to rename file.");
@@ -71,7 +75,7 @@ export default class GUIDRenamer extends Plugin {
     }
 
     generateGUID() {
-        return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+        return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
             var r = Math.random() * 16 | 0, v = c === 'x' ? r : (r & 0x3 | 0x8);
             return v.toString(16);
         });
