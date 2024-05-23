@@ -1,12 +1,12 @@
 {
   "compilerOptions": {
-    "target": "es2017",             // Updated to a more recent version
-    "module": "commonjs",           // CommonJS is typical for Node.js applications
-    "lib": ["dom", "es2017"],       // Updated to include ES2017 library definitions
-    "outDir": "./dist",             // Output directory for compiled files
-    "rootDir": "./src",             // Root directory of source files
-    "strict": true,                 // Enable all strict type-checking options
-    "esModuleInterop": true,        // Enables compatibility with Babel imports
+    "target": "es2017",
+    "module": "commonjs",
+    "lib": ["dom", "es2017"],
+    "outDir": "./dist",
+    "rootDir": "./src",
+    "strict": true,
+    "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true
   },
   "include": [
