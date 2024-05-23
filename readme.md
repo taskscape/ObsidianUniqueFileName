@@ -31,7 +31,7 @@ npm install @types/node --save obsidian
 Transpile TypeScript to JavaScript: Install TypeScript globally if not already installed: 
 
 ```bash
-npm install -g typescript`
+npm install -g typescript
 ```
 
 Run `tsc main.ts` to get `main.js`.
