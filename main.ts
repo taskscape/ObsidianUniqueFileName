@@ -10,13 +10,7 @@ export default class GUIDRenamer extends Plugin {
                 if (currentFile) {
                     this.renameFileToGUID(currentFile);
                 }
-            },
-            hotkeys: [
-                {
-                    modifiers: ["Mod", "Shift"],
-                    key: 'r',
-                }
-            ]
+            }
         });
 
         this.registerEvent(
