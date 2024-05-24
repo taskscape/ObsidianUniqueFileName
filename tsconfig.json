@@ -10,7 +10,7 @@
     "forceConsistentCasingInFileNames": true
   },
   "include": [
-    "src/**/*"                      // Adjust this path to where your source files are located
+    "src/**/*"
   ],
   "exclude": [
     "node_modules"
