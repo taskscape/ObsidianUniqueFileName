@@ -2,9 +2,9 @@
     "id": "guid-renamer",
     "name": "Guid Renamer",
     "version": "1.0.0",
-    "minAppVersion": "0.12.0",
-    "description": "This plugin renames currently selected file by providing it a unique file name based on GUID style pattern.",
+    "minAppVersion": "1.5.12",
+    "description": "Rename selected file with a random GUID.",
     "author": "Taskscape LTD, Kacper Pabianiak",
-    "authorUrl": "",
+    "authorUrl": "https://taskscape.com/",
     "isDesktopOnly": false
 }
