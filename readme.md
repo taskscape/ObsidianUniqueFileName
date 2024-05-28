@@ -1,48 +1,49 @@
-# Obsidian rename file
+# Obsidian GUID Renamer
 
-This plugin renames currently selected file by providing it a unique file name based on GUID style pattern.
+This plugin renames the currently selected file by providing it a unique file name based on a GUID style pattern. This ensures that your file names are unique and avoids conflicts.
 
-## Step 1: Set up Your Plugin Environment
-First, ensure you have a development environment ready:
-- Node.js installed on your system.
-- A new or existing Obsidian vault where you can test your plugin.
+## Features
 
-## Step 2: Create a New Plugin
-Create a Plugin Directory: In your Obsidian vault, go to .obsidian/plugins and create a new directory for your plugin, for example, guid-renamer.
+- **Rename to GUID**: Right-click any file and rename it to a unique GUID.
 
-Initialize the Plugin:
-Navigate into your plugin's directory in the terminal and run:
+## Requirements
 
-```bash
-npm init -y
-```
+- Obsidian version 1.5.12 or higher.
 
-Install Dependencies:
-You will need obsidian package:
+## Manual Installation
 
-```bash
-npm install --save obsidian
-```
-```bash
-npm install @types/node --save obsidian
-```
+1. **Download the Latest Release**:
+   - Go to the [Releases](https://github.com/taskscape/ObsidianUniqueFileName/releases) page and download the latest version of the plugin.
 
-## Step 3: Build the plugin
-Transpile TypeScript to JavaScript: Install TypeScript globally if not already installed: 
+2. **Unpack the Plugin**:
+   - Navigate to your Obsidian vault directory.
+   - Open the `.obsidian/plugins` folder.
+   - Create a new folder named `guid-renamer`.
+   - Unpack the release files into the `guid-renamer` folder.
 
-```bash
-npm install -g typescript
-```
+3. **Enable the Plugin**:
+   - Open Obsidian and go to `Settings` > `Community plugins`.
+   - Click `Reload plugins` to refresh the plugin list.
+   - Find `Guid Renamer` in the list and toggle it on.
 
-Run `tsc main.ts` to get `main.js`.
+## Usage
 
-## Step 4: Load the plugin
-Load Your Plugin:
-- Go to Obsidian settings, under "Community Plugins", disable Safe Mode.
-- Click "Browse" and find your plugin directory, then enable your new plugin.
+1. **Rename a File**:
+   - Right-click on any file in your vault.
+   - Select the option `Rename to GUID`.
 
-## Step 5: Test the plugin
-- Reload the Obsidian vault.
-- Right-click on a file in the file explorer or on a link within a note to see the new context menu option.
-- Use the option to rename the file to a GUID.
+2. **Result**:
+   - The file will be renamed to a unique identifier, such as `123e4567-e89b-12d3-a456-426614174000.md`.
 
+## Example
+
+Before: `My Note.md`  
+After: `123e4567-e89b-12d3-a456-426614174000.md`
+
+## Support
+
+If you encounter any issues or have questions, please open an issue on our [GitHub repository](https://github.com/taskscape/ObsidianUniqueFileName).
+
+## Contributing
+
+Contributions are welcome! Feel free to fork the repository and submit pull requests.
